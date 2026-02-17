@@ -1297,7 +1297,7 @@ body {
   width: 400px;
   height: 550px;
   background: rgba(5, 5, 5, 0.98);
-  border: 1px solid var(--border);
+  border: 1px solid var(--accent);
   display: flex;
   flex-direction: column;
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.8);
@@ -1366,6 +1366,21 @@ body {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) #000;
+}
+
+.chat-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chat-body::-webkit-scrollbar-track {
+  background: #000;
+}
+
+.chat-body::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 0;
 }
 
 .chat-welcome {

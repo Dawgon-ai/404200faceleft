@@ -11,6 +11,7 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
   const [loading, setLoading] = useState(false);
   const [consecutiveErrors, setConsecutiveErrors] = useState(0);
   const [teaBreakMode, setTeaBreakMode] = useState(false);
+  const [sessionApiKey, setSessionApiKey] = useState<string | null>(null);
   const chatRef = useRef<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const teaBreakTimerRef = useRef<any>(null);
@@ -33,7 +34,15 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
     setLoading(true);
 
     try {
-      const apiKey = (import.meta as any).env.VITE_GEMINI_API_KEY || (import.meta as any).env.GEMINI_API_KEY || (window as any).process?.env?.GEMINI_API_KEY;
+      if (userText.trim().startsWith('AIza') && userText.trim().length > 20) {
+        setSessionApiKey(userText.trim());
+        setMessages(prev => [...prev, { role: 'model', text: "Right you are, governor! That looks like a proper uplink key. I've plugged it into the system—let's see if we can get this show on the road, shall we?" }]);
+        setLoading(false);
+        if (chatRef.current) chatRef.current = null; // Reset chat with new key
+        return;
+      }
+
+      const apiKey = sessionApiKey || (import.meta as any).env.VITE_GEMINI_API_KEY || (import.meta as any).env.GEMINI_API_KEY || (window as any).process?.env?.GEMINI_API_KEY;
 
       if (!apiKey || apiKey === "YOUR_API_KEY_HERE") {
         console.warn('Gemini API Key missing or placeholder.');
@@ -121,9 +130,9 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 20, opacity: 0 }}
         >
-          <div className="chat-header">
-            <span className="chat-title">SYSTEM_CHAT_V3.0</span>
-            <button onClick={onClose} className="chat-close"><X size={18} /></button>
+          <div className="chat-header" style={{ background: '#000', borderBottom: '2px solid var(--accent)' }}>
+            <span className="chat-title" style={{ color: 'var(--accent)' }}>SYSTEM_CHAT_V3.0</span>
+            <button onClick={onClose} className="chat-close" style={{ color: 'var(--accent)' }}><X size={18} /></button>
           </div>
           <div className="chat-body">
             <div className="chat-welcome">
@@ -141,7 +150,7 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             {teaBreakMode && <div className="chat-loading">{'>'} SIR_SYSTEMS_ON_TEA_BREAK...</div>}
             <div ref={messagesEndRef} />
           </div>
-          <div className="chat-footer">
+          <div className="chat-footer" style={{ background: '#000', borderTop: '2px solid var(--accent)' }}>
             <span className="prompt-char">$</span>
             <input
               type="text"
