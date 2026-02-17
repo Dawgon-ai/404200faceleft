@@ -249,7 +249,7 @@ export const Footer = () => (
 
         <div className="footer-col copyright-col">
           <div>
-            404200 <span style={{ color: 'var(--accent)' }}>©</span> 2026 <span style={{ color: 'var(--accent)' }}>.</span> ALL RIGHTS RESERVED <span style={{ color: 'var(--accent)' }}>.</span>
+            404200<span style={{ color: 'var(--accent)' }}>©</span>2026<span style={{ color: 'var(--accent)' }}>.</span>ALL RIGHTS RESERVED<span style={{ color: 'var(--accent)' }}>.</span>
           </div>
         </div>
       </div>
