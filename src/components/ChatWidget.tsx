@@ -101,7 +101,7 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
             <div className="chat-welcome">
               {'>'} CONNECTION_ESTABLISHED<br />
               {'>'} SYSTEM_READY. ASK_ABOUT_SERVICES.<br />
-              ----------------------------------
+              <div style={{ height: '1px', background: 'var(--border)', margin: '12px 0', opacity: 0.3 }}></div>
             </div>
             {messages.map((msg, idx) => (
               <div key={idx} className={`chat-message ${msg.role}`}>

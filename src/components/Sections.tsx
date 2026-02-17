@@ -29,13 +29,12 @@ export const ClientMarquee = () => (
       {[...Array(4)].map((_, i) => (
         <React.Fragment key={i}>
           <div className="marquee-track">
-            <span>PARTNER_01</span>
-            <span>SYSTEM_CORP</span>
-            <span>TECH_LIMASSOL</span>
-            <span>SOLUTIONS_CY</span>
-            <span>CYPRUS_DEV</span>
-            <span>NODE_PRIME</span>
-            <span>ALPHA_RETAIL</span>
+            <span>AMSA_ARCHITECTS</span>
+            <span>MEMA_ARCHITECTS</span>
+            <span>MARIOS_ECONOMIDES_+_MARIA_AKKELIDOU</span>
+            <span>AMSA_ARCHITECTS</span>
+            <span>MEMA_ARCHITECTS</span>
+            <span>MARIOS_ECONOMIDES_+_MARIA_AKKELIDOU</span>
           </div>
         </React.Fragment>
       ))}
@@ -168,7 +167,22 @@ export const Footer = () => (
       <div className="footer-top">
         <div className="spacer"></div>
         <div className="footer-logo">
-          <span className="logo-text">404<span className="logo-accent">200</span></span>
+          <span className="logo-text">
+            404
+            <span className="logo-accent">
+              2
+              <motion.span
+                style={{ display: 'inline-block' }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              >0</motion.span>
+              <motion.span
+                style={{ display: 'inline-block' }}
+                animate={{ rotate: -360 }}
+                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+              >0</motion.span>
+            </span>
+          </span>
         </div>
       </div>
 
@@ -189,7 +203,7 @@ export const Footer = () => (
         </div>
 
         <div className="footer-col copyright-col">
-          <div>© 2026, ALL RIGHTS RESERVED.</div>
+          <div>404400 © 2026, ALL RIGHTS RESERVED.</div>
         </div>
       </div>
     </div>
