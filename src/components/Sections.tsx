@@ -1,0 +1,208 @@
+import React, { useState } from 'react';
+import { Quote } from 'lucide-react';
+import { motion } from 'framer-motion';
+
+export const Header = ({ onInitChat }: { onInitChat: () => void }) => (
+  <nav className="header-nav">
+    <div className="container nav-content">
+      <div className="logo-group">
+        <span className="logo-text">404<span className="logo-accent">200</span></span>
+        <div className="status-badge">
+          <div className="status-dot"></div>
+          <span>SYSTEM_STABLE_V1.0</span>
+        </div>
+      </div>
+      <div className="nav-links">
+        <a href="#services">SERVICES</a>
+        <a href="#packages">SUBSCRIPTIONS</a>
+        <a href="#process">PROTOCOL</a>
+        <button className="btn-primary" onClick={onInitChat}>INIT_CHAT</button>
+      </div>
+    </div>
+  </nav>
+);
+
+export const ClientMarquee = () => (
+  <div className="client-marquee">
+    <div className="marquee-label">TRUSTED_BY_NODES:</div>
+    <div className="marquee-content">
+      {[...Array(4)].map((_, i) => (
+        <React.Fragment key={i}>
+          <div className="marquee-track">
+            <span>PARTNER_01</span>
+            <span>SYSTEM_CORP</span>
+            <span>TECH_LIMASSOL</span>
+            <span>SOLUTIONS_CY</span>
+            <span>CYPRUS_DEV</span>
+            <span>NODE_PRIME</span>
+            <span>ALPHA_RETAIL</span>
+          </div>
+        </React.Fragment>
+      ))}
+    </div>
+  </div>
+);
+
+export const FAQTerminal = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const faqs = [
+    { q: "Why are you cheaper than other agencies?", a: "We're not cheap—we're efficient. No fancy office. No account managers. Just talented designers and developers who build great sites fast. You pay for quality work, not overhead." },
+    { q: "Can you really deliver in 7-14 days?", a: "Yep! We've streamlined our process. Most delays at other agencies come from poor communication and scope creep. We're clear on what we're building, and we nail it." },
+    { q: "What if I don't like the design?", a: "Unlimited revisions during the design phase. We don't move to development until you're 100% happy." },
+    { q: "Do I own the website?", a: "100%. We hand over everything. You can take it anywhere you want (but we hope you'll stay for our ongoing services 😊)." },
+    { q: "What about hosting?", a: "We can handle it (€15/month) or you can use your own. Your choice." },
+    { q: "Can you update my existing site?", a: "Sometimes yes, sometimes starting fresh is better. We'll be honest about what makes sense for your budget and goals." },
+    { q: "Do you write the content?", a: "We'll guide you on what content is needed. You provide the raw info about your business, we'll polish it to perfection." },
+    { q: "What's included in 'animations'?", a: "Scroll effects, hover interactions, smooth transitions, animated stats, parallax backgrounds, and more. All lightweight and mobile-friendly." },
+    { q: "How do you generate Google reviews?", a: "Automated email/SMS requests to happy customers, QR codes in-store, follow-up sequences. We handle the strategy, you provide the great service." },
+    { q: "Do I need to sign a long contract?", a: "Website builds are one-time projects. Monthly services (SEO, reviews, social) are month-to-month. Cancel anytime with 30 days notice." }
+  ];
+
+  return (
+    <div className="faq-terminal-window">
+      <div className="faq-header">
+        <div className="window-controls">
+          <span className="dot close"></span>
+          <span className="dot minimize"></span>
+          <span className="dot expand"></span>
+        </div>
+        <div className="window-title">admin@404200:~/knowledge_base</div>
+      </div>
+      <div className="faq-content-scroll">
+        <div className="cmd-line">
+           <span className="prompt">$</span> <span className="cmd-text">ls -la ./faq_database/</span>
+        </div>
+        <br />
+        {faqs.map((item, i) => (
+          <div key={i} className="terminal-entry">
+            <div 
+              className={`cmd-line clickable ${openIndex === i ? 'active' : ''}`} 
+              onClick={() => setOpenIndex(openIndex === i ? null : i)}
+            >
+              <span className="prompt">{'>'}</span> 
+              <span className="cmd-command">cat faq_{i+1}.txt --title "{item.q}"</span>
+            </div>
+            {openIndex === i && (
+              <motion.div 
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                className="cmd-response"
+              >
+                {item.a}
+              </motion.div>
+            )}
+          </div>
+        ))}
+        <div className="cmd-line">
+          <span className="prompt">$</span> <span className="cursor">_</span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export const Testimonials = () => (
+  <section className="testimonials-section">
+    <div className="container">
+      <div className="section-header">
+        <h2 className="section-title">NODE_FEEDBACK</h2>
+        <p className="section-subtitle">Real feedback from deployed systems.</p>
+      </div>
+      <div className="testimonials-grid">
+        {[
+          { text: "404200 completely rebuilt our internal clock-in system. Efficiency increased by 40% overnight. No more manual logs.", author: "Logistics Manager, Limassol Hub" },
+          { text: "The Website-in-a-Week was actually delivered in 6 days. The animations are so smooth they feel like native apps.", author: "Founder, Alpha Retail Group" },
+          { text: "Our GMB reviews went from 3.2 to 4.8 in 3 months using their reputation system. Best ROI we've seen this year.", author: "Director, Coastal Real Estate" }
+        ].map((t, i) => (
+          <motion.div 
+            key={i} 
+            whileHover={{ y: -5 }}
+            className="testimonial-card"
+          >
+            <Quote size={32} className="quote-icon" />
+            <p className="testimonial-text">{t.text}</p>
+            <div className="testimonial-author">
+              <div className="author-line"></div>
+              <span>{t.author}</span>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export const FAQSection = () => (
+  <section className="faq-section">
+    <div className="container">
+      <div className="section-header">
+        <h2 className="section-title">SYSTEM_KNOWLEDGE_BASE</h2>
+        <p className="section-subtitle">Transparent protocols for smooth collaboration.</p>
+      </div>
+      <FAQTerminal />
+    </div>
+  </section>
+);
+
+export const PricingMatrix = () => (
+  <section id="packages" className="matrix-section">
+    <div className="container">
+      <div className="section-header">
+        <h2 className="section-title">MONTHLY_SUBSCRIPTIONS</h2>
+        <p className="section-subtitle">Scalable maintenance and recurring growth systems.</p>
+      </div>
+      <div className="matrix-grid">
+        {[
+          { name: "Starter Care Plan", price: "$79/mo", focus: "Maintenance", updates: "Security", extra: "Monitoring" },
+          { name: "Growth Plan", price: "$199/mo", focus: "2 SEO Blogs", updates: "Bot Improvements", extra: "GMB Posts" },
+          { name: "Reputation Plan", price: "$249/mo", focus: "Review Automation", updates: "GMB Optimization", extra: "Local SEO Signals" },
+          { name: "Social Auto", price: "$199-$299/mo", focus: "8-12 AI Posts", updates: "Captions/Hashtags", extra: "Brand Voice Training" },
+          { name: "Full Growth System", price: "$399-$599/mo", focus: "Full Maintenance", updates: "SEO + Social", extra: "Priority Support" },
+          { name: "Ecom Starter", price: "$149/mo", focus: "Store Maintenance", updates: "Product Updates", extra: "Uptime Guarantee" },
+          { name: "Ecom Scale", price: "$349/mo", focus: "CRO & SEO", updates: "Funnel Optimization", extra: "Ad Asset Creation" },
+          { name: "Enterprise Node", price: "Custom", focus: "Dedicated Team", updates: "Full CI/CD Pipeline", extra: "24/7 SLA" }
+        ].map((pkg, i) => (
+          <div key={i} className="matrix-card">
+            <div className="matrix-name">{pkg.name}</div>
+            <div className="matrix-price">{pkg.price}</div>
+            <div className="matrix-details">
+              <div>CORE: {pkg.focus}</div>
+              <div>PROTOCOLS: {pkg.updates}</div>
+              <div>EXTRAS: {pkg.extra}</div>
+            </div>
+            <button className="btn-matrix">SELECT_PACKAGE</button>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+);
+
+export const Footer = () => (
+  <footer className="footer">
+    <div className="container footer-grid">
+      <div className="brand-stack">
+        <span className="logo-text">404<span className="logo-accent">200</span></span>
+        <p>This company understands systems.</p>
+        <div className="contact-info">
+          <span>systems@404200.agency</span>
+          <span>Limassol, Cyprus</span>
+        </div>
+      </div>
+      <div className="footer-links">
+        <div>
+          <h5>SYSTEM_LINKS</h5>
+          <a href="#">About_Us</a>
+          <a href="#">Portfolio_Log</a>
+          <a href="#">Contact_Request</a>
+        </div>
+        <div>
+          <h5>LEGAL_PROTOCOL</h5>
+          <a href="#">Privacy_Notice</a>
+          <a href="#">Terms_of_Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+);

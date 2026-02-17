@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "@google/genai": "^0.7.0",
+    "framer-motion": "^12.34.0",
+    "lucide-react": "^0.563.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "lucide-react": "^0.563.0"
+    "react-dom": "^19.0.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",
