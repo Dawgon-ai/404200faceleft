@@ -100,7 +100,7 @@ const Hero = ({ onInitChat }: { onInitChat: () => void }) => {
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.4, delay: 0.1 }}
                     >
-                        <div className={`terminal-display ${isError ? 'err-state' : 'ok-state'}`}>
+                        <div className={`terminal-display ${isError ? 'err-state' : 'ok-state'}`} style={{ height: '320px', border: isError ? '1px solid var(--error)' : '1px solid var(--accent)' }}>
                             <div className="terminal-header">
                                 <div className="dots">
                                     <span style={{ background: '#ff5f56' }}></span>
