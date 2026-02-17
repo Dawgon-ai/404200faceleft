@@ -53,93 +53,93 @@ const Services = () => {
                 </div>
 
                 <div className="market-focus">
-                    <h3 className="market-title">:: CATEGORY: SECURE_ARCHITECTURE ::</h3>
+                    <h3 className="market-title">:: CATEGORY: AI_STRATEGY_&_AGENTS ::</h3>
                 </div>
                 <div className="services-grid">
                     <ServiceBlock
-                        icon={Lock}
-                        title="SECURE_SYSTEMS_VC"
-                        price="$2,500+"
-                        subtitle="Hardened infrastructure for fintech, legal, and high-risk data."
-                        items={["AES-256 Encryption Layers", "Virtual IT / MSP Support", "GDPR/KYC Compliant Ops"]}
+                        icon={Bot}
+                        title="AI_CONSULTANTS"
+                        price="$1,500+"
+                        subtitle="We train your team for a competitive edge."
+                        items={["Strategic AI Implementation", "Workplace Efficiency Audits", "Fun-to-learn Team Training"]}
                         delay={1}
                     />
                     <ServiceBlock
-                        icon={Network}
-                        title="VIRTUAL_IT_SUPPORT"
-                        price="$1,200/mo"
-                        subtitle="Complete cloud infrastructure management and 24/7 shielding."
-                        items={["Remote Workspace Setup", "Access Control (IAM)", "Uptime Monitoring"]}
+                        icon={Cpu}
+                        title="INTELLIGENT_AGENTS"
+                        price="$2,200+"
+                        subtitle="Task-doers integratable with API MCPs."
+                        items={["Big Data Communication", "Voice-Prompted Task Execution", "Automated CRM Logic"]}
                         delay={2}
                     />
                     <ServiceBlock
-                        icon={Cpu}
-                        title="MCP_SERVER_SYNC"
-                        price="$1,800+"
-                        subtitle="Model Context Protocol implementation for AI data bridges."
-                        items={["Full DB Connector (Postgres/SQL)", "Custom API Middleware", "Real-time AI Indexing"]}
+                        icon={Database}
+                        title="MASSIVE_SCRAPING"
+                        price="$800+"
+                        subtitle="Data extraction at massive magnitude."
+                        items={["High-Scale Data Pipelines", "Competitor Intelligence", "Automated Market Sync"]}
                         delay={3}
                     />
                 </div>
 
                 <br /><br />
                 <div className="market-focus">
-                    <h3 className="market-title">:: CATEGORY: AI_&_AUTOMATION ::</h3>
+                    <h3 className="market-title">:: CATEGORY: SYSTEMS_&_MARKETING ::</h3>
                 </div>
                 <div className="services-grid">
                     <ServiceBlock
-                        icon={Mic}
-                        title="AI_VOICE_ORDERS"
-                        price="$1,500+"
-                        subtitle="Let AI handle the boring jobs via direct voice interfaces."
-                        items={["Voice Command Parsing", "Auto-CRM Entry", "Efficiency Audits"]}
+                        icon={Zap}
+                        title="MARKETING_AUTO_FLOWS"
+                        price="$1,200+"
+                        subtitle="Smart content flows & high-conversion emails."
+                        items={["H.O.R Optimized Content", "Automated Lead Nurturing", "Smart Campaign Logic"]}
                         delay={4}
                     />
                     <ServiceBlock
-                        icon={Database}
-                        title="SCRAPE_&_SYNC"
-                        price="$800+"
-                        subtitle="Automated data extraction and sync pipelines."
-                        items={["Newsletter Archiving", "Market Competitor Scrapes", "Web-to-Sheet Automation"]}
+                        icon={TrendingUp}
+                        title="DOMINANT_SEO"
+                        price="$500/mo"
+                        subtitle="No expensive SaaS needed. Google has it all."
+                        items={["Native Search Dominance", "Zero-SaaS Infrastructure", "Competitive Keyword Hijacking"]}
                         delay={5}
                     />
                     <ServiceBlock
-                        icon={Bot}
-                        title="INTELLIGENT_AGENTS"
-                        price="$1,200+"
-                        subtitle="Autonomous agents that handle recurring business logic."
-                        items={["Slack/Discord Integration", "Customer Support Brains", "AI Performance Reviews"]}
+                        icon={Layout}
+                        title="PREMIUM_MOBILE_APPS"
+                        price="$3,000+"
+                        subtitle="Aesthetic-first design that converts."
+                        items={["High-Status UI/UX", "Offline Persistence Logic", "App Store Compliance"]}
                         delay={6}
                     />
                 </div>
 
                 <br /><br />
                 <div className="market-focus">
-                    <h3 className="market-title">:: CATEGORY: FULL_STACK_DEPLOYMENT ::</h3>
+                    <h3 className="market-title">:: CATEGORY: SECURE_INFRASTRUCTURE ::</h3>
                 </div>
                 <div className="services-grid">
                     <ServiceBlock
-                        icon={Globe}
-                        title="WEB_SYSTEMS_MVPS"
-                        price="$1,400+"
-                        subtitle="Fast delivery of full-scale web applications and dashboards."
-                        items={["Tailwind + React Stack", "Edge Deployment (Vercel)", "Scalable Backend Architecture"]}
+                        icon={Lock}
+                        title="SECURE_SYSTEMS_VC"
+                        price="$2,500+"
+                        subtitle="Hardened architecture for high-risk data."
+                        items={["AES-256 Encryption", "Virtual IT / MSP Support", "Total Data Sovereignty"]}
                         delay={7}
                     />
                     <ServiceBlock
-                        icon={Layout}
-                        title="MOBILE_APPS_NATIVE"
-                        price="$2,800+"
-                        subtitle="Cross-platform mobile systems with offline persistence."
-                        items={["React Native / Expo", "Push Notification Logic", "App Store Compliance"]}
+                        icon={Network}
+                        title="VIRTUAL_IT_UPLINK"
+                        price="$1,200/mo"
+                        subtitle="24/7 shielding and infrastructure management."
+                        items={["Remote Workspace Setup", "Access Control (IAM)", "Uptime Monitoring"]}
                         delay={8}
                     />
                     <ServiceBlock
-                        icon={TrendingUp}
-                        title="SEO_DOMINANCE"
-                        price="$500/mo"
-                        subtitle="Technical search engine control and visibility scaling."
-                        items={["Real-time Indexing", "Local GMB Dominance", "Competitor Keyword Hijacking"]}
+                        icon={Globe}
+                        title="WEB_SYSTEMS_CORE"
+                        price="$1,400+"
+                        subtitle="Full-scale web applications and dashboards."
+                        items={["Tailwind + React Stack", "Edge Deployment", "Scalable Logic Boards"]}
                         delay={9}
                     />
                 </div>
