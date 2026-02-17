@@ -7,21 +7,23 @@ import {
     Wrench,
     TrendingUp,
     Settings,
-    Users,
-    Palette,
-    ShoppingBag,
-    FileSignature,
-    Building
+    Layout,
+    Cpu,
+    Network,
+    Mic,
+    Database,
+    Globe,
+    Lock
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const ServiceBlock = ({ icon: Icon, title, price, subtitle, items, delay }: any) => (
     <motion.div
         className="service-block"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: delay * 0.1 }}
+        viewport={{ once: true, amount: 0.2 }}
+        transition={{ duration: 0.3, delay: delay * 0.05 }}
     >
         <div className="block-head">
             <div className="icon-box"><Icon size={20} /></div>
@@ -37,7 +39,7 @@ const ServiceBlock = ({ icon: Icon, title, price, subtitle, items, delay }: any)
                 </div>
             ))}
         </div>
-        <button className="btn-block-action">CONFIGURE_MODULE</button>
+        <button className="btn-block-action">INIT_MODULE_SYNC</button>
     </motion.div>
 );
 
@@ -46,109 +48,99 @@ const Services = () => {
         <section id="services" className="services-container">
             <div className="container">
                 <div className="section-header">
-                    <h2 className="section-title">ONE_TIME_MODULES</h2>
-                    <p className="section-subtitle">Structural engineering for high-performance digital deployment.</p>
+                    <h2 className="section-title">SYSTEM_MODULES</h2>
+                    <p className="section-subtitle">Engineered for absolute reliability and high-speed delivery.</p>
                 </div>
 
-                {/* CYPRUS MARKET SPECIALS */}
                 <div className="market-focus">
-                    <h3 className="market-title">:: TARGET_KEY: CYPRUS_MARKET ::</h3>
+                    <h3 className="market-title">:: CATEGORY: SECURE_ARCHITECTURE ::</h3>
                 </div>
-
                 <div className="services-grid">
                     <ServiceBlock
-                        icon={Building}
-                        title="REAL ESTATE / RENTALS"
+                        icon={Lock}
+                        title="SECURE_SYSTEMS_VC"
                         price="$2,500+"
-                        subtitle="Centralized dashboard for properties, tenants, and maintenance."
-                        items={["Unified '3-Screen' Dashboard", "Tenant Ticket System", "Auto-Lease Generation (PDF)"]}
+                        subtitle="Hardened infrastructure for fintech, legal, and high-risk data."
+                        items={["AES-256 Encryption Layers", "Virtual IT / MSP Support", "GDPR/KYC Compliant Ops"]}
                         delay={1}
                     />
                     <ServiceBlock
-                        icon={FileSignature}
-                        title="CORP. SERVICES & FOREX"
-                        price="$1,800+"
-                        subtitle="Secure document portals and automated compliance workflows."
-                        items={["Document E-Signatures", "Encrypted Client Chat", "KYC Document Uploads"]}
+                        icon={Network}
+                        title="VIRTUAL_IT_SUPPORT"
+                        price="$1,200/mo"
+                        subtitle="Complete cloud infrastructure management and 24/7 shielding."
+                        items={["Remote Workspace Setup", "Access Control (IAM)", "Uptime Monitoring"]}
                         delay={2}
                     />
                     <ServiceBlock
-                        icon={Users}
-                        title="HR CORE / PAYROLL"
-                        price="$1,500 – $3,500"
-                        subtitle="Custom internal systems for attendance and payroll sync."
-                        items={["Direct Payroll Sync", "AI Performance Reviews", "Sick Leave Auto-approval"]}
+                        icon={Cpu}
+                        title="MCP_SERVER_SYNC"
+                        price="$1,800+"
+                        subtitle="Model Context Protocol implementation for AI data bridges."
+                        items={["Full DB Connector (Postgres/SQL)", "Custom API Middleware", "Real-time AI Indexing"]}
                         delay={3}
                     />
                 </div>
 
-                <div className="separator-line"></div>
-
-                {/* STANDARD SERVICES */}
+                <br /><br />
+                <div className="market-focus">
+                    <h3 className="market-title">:: CATEGORY: AI_&_AUTOMATION ::</h3>
+                </div>
                 <div className="services-grid">
                     <ServiceBlock
-                        icon={Zap}
-                        title="WEBSITE-IN-A-WEEK"
-                        price="$699 – $1,200"
-                        subtitle="GSAP / Framer-style animations with 7-day delivery."
-                        items={["5–7 Pages Animated", "Mobile-first Architecture", "GA + Search Console Integration"]}
+                        icon={Mic}
+                        title="AI_VOICE_ORDERS"
+                        price="$1,500+"
+                        subtitle="Let AI handle the boring jobs via direct voice interfaces."
+                        items={["Voice Command Parsing", "Auto-CRM Entry", "Efficiency Audits"]}
                         delay={4}
                     />
                     <ServiceBlock
-                        icon={Bot}
-                        title="WEBSITE + AI CHATBOT"
-                        price="$899 – $1,500"
-                        subtitle="Everything in Website-in-a-Week plus custom AI logic."
-                        items={["Trained on Website/FAQs", "Lead Capture Module", "GDPR-friendly Setup"]}
+                        icon={Database}
+                        title="SCRAPE_&_SYNC"
+                        price="$800+"
+                        subtitle="Automated data extraction and sync pipelines."
+                        items={["Newsletter Archiving", "Market Competitor Scrapes", "Web-to-Sheet Automation"]}
                         delay={5}
                     />
                     <ServiceBlock
-                        icon={Wrench}
-                        title="SMALL WEB APP / TOOLS"
-                        price="$1,200 – $2,500"
-                        subtitle="Dashboards, booking systems, or custom calculators."
-                        items={["Authentication Layer", "Secure Deployment", "Basic Documentation"]}
+                        icon={Bot}
+                        title="INTELLIGENT_AGENTS"
+                        price="$1,200+"
+                        subtitle="Autonomous agents that handle recurring business logic."
+                        items={["Slack/Discord Integration", "Customer Support Brains", "AI Performance Reviews"]}
                         delay={6}
                     />
+                </div>
+
+                <br /><br />
+                <div className="market-focus">
+                    <h3 className="market-title">:: CATEGORY: FULL_STACK_DEPLOYMENT ::</h3>
+                </div>
+                <div className="services-grid">
                     <ServiceBlock
-                        icon={Palette}
-                        title="FULL BRANDING"
-                        price="$800 – $2,500"
-                        subtitle="Complete visual identity and brand strategy systems."
-                        items={["Logo System", "Color Theory & Typography", "Brand Voice Guidelines"]}
+                        icon={Globe}
+                        title="WEB_SYSTEMS_MVPS"
+                        price="$1,400+"
+                        subtitle="Fast delivery of full-scale web applications and dashboards."
+                        items={["Tailwind + React Stack", "Edge Deployment (Vercel)", "Scalable Backend Architecture"]}
                         delay={7}
                     />
                     <ServiceBlock
-                        icon={TrendingUp}
-                        title="SEO FOUNDATION"
-                        price="$399 – $699"
-                        subtitle="Deep technical site speed and indexing optimization."
-                        items={["Technical SEO Fixes", "GMB Optimization", "Keyword Setup (Local)"]}
+                        icon={Layout}
+                        title="MOBILE_APPS_NATIVE"
+                        price="$2,800+"
+                        subtitle="Cross-platform mobile systems with offline persistence."
+                        items={["React Native / Expo", "Push Notification Logic", "App Store Compliance"]}
                         delay={8}
                     />
                     <ServiceBlock
-                        icon={ShieldCheck}
-                        title="GMB + REPUTATION"
-                        price="$299 – $499"
-                        subtitle="Legitimate review funnel and automation systems."
-                        items={["Review Request Automation", "SMS / Email Follow-ups", "Review Filtering Funnel"]}
+                        icon={TrendingUp}
+                        title="SEO_DOMINANCE"
+                        price="$500/mo"
+                        subtitle="Technical search engine control and visibility scaling."
+                        items={["Real-time Indexing", "Local GMB Dominance", "Competitor Keyword Hijacking"]}
                         delay={9}
-                    />
-                    <ServiceBlock
-                        icon={Settings}
-                        title="AI AUTOMATION / MCPs"
-                        price="$499 – $1,200"
-                        subtitle="Zapier / Make / API-based workflow automation."
-                        items={["CRM Automation", "AI Lead Follow-ups", "Internal Process Flows"]}
-                        delay={10}
-                    />
-                    <ServiceBlock
-                        icon={ShoppingBag}
-                        title="ECOMMERCE ARCHITECTURE"
-                        price="$2,500 – $5,000"
-                        subtitle="High-performance headless or Shopify storefronts."
-                        items={["Global Payment Gateways", "Inventory Sync", "Conversion Rate Optimization"]}
-                        delay={11}
                     />
                 </div>
             </div>

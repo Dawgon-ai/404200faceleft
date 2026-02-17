@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Home, Users, BarChart3, MessageSquare, Plus, Bell, Search, Menu, FileSpreadsheet, Mail, StickyNote, AlertCircle } from 'lucide-react';
 import MagneticButton from './MagneticButton';
 
-const ChaosView = ({ onResolve }: { onResolve: () => void }) => {
+const ChaosView = ({ onResolve, ...props }: { onResolve: () => void, key?: string }) => {
     return (
         <motion.div
             className="chaos-view"
@@ -68,7 +68,13 @@ const RentalDemo = () => {
 
     return (
         <section className="rental-demo-section">
-            <div className="container">
+            <motion.div
+                className="container"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+            >
                 <div className="section-header">
                     <h2 className="section-title">CLIENT_CASE_STUDY: RENTALS_CY</h2>
                     <AnimatePresence mode="wait">
@@ -222,7 +228,7 @@ const RentalDemo = () => {
                         </AnimatePresence>
                     </div>
                 </div>
-            </div>
+            </motion.div>
         </section>
     );
 };

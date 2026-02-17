@@ -44,18 +44,10 @@ export const ClientMarquee = () => (
 );
 
 export const FAQTerminal = () => {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
   const faqs = [
     { q: "Why are you cheaper than other agencies?", a: "We're not cheap—we're efficient. No fancy office. No account managers. Just talented designers and developers who build great sites fast. You pay for quality work, not overhead." },
     { q: "Can you really deliver in 7-14 days?", a: "Yep! We've streamlined our process. Most delays at other agencies come from poor communication and scope creep. We're clear on what we're building, and we nail it." },
-    { q: "What if I don't like the design?", a: "Unlimited revisions during the design phase. We don't move to development until you're 100% happy." },
-    { q: "Do I own the website?", a: "100%. We hand over everything. You can take it anywhere you want (but we hope you'll stay for our ongoing services 😊)." },
-    { q: "What about hosting?", a: "We can handle it (€15/month) or you can use your own. Your choice." },
     { q: "Can you update my existing site?", a: "Sometimes yes, sometimes starting fresh is better. We'll be honest about what makes sense for your budget and goals." },
-    { q: "Do you write the content?", a: "We'll guide you on what content is needed. You provide the raw info about your business, we'll polish it to perfection." },
-    { q: "What's included in 'animations'?", a: "Scroll effects, hover interactions, smooth transitions, animated stats, parallax backgrounds, and more. All lightweight and mobile-friendly." },
-    { q: "How do you generate Google reviews?", a: "Automated email/SMS requests to happy customers, QR codes in-store, follow-up sequences. We handle the strategy, you provide the great service." },
     { q: "Do I need to sign a long contract?", a: "Website builds are one-time projects. Monthly services (SEO, reviews, social) are month-to-month. Cancel anytime with 30 days notice." }
   ];
 
@@ -71,27 +63,18 @@ export const FAQTerminal = () => {
       </div>
       <div className="faq-content-scroll">
         <div className="cmd-line">
-           <span className="prompt">$</span> <span className="cmd-text">ls -la ./faq_database/</span>
+          <span className="prompt">$</span> <span className="cmd-text">cat ./faq_database/*</span>
         </div>
         <br />
         {faqs.map((item, i) => (
-          <div key={i} className="terminal-entry">
-            <div 
-              className={`cmd-line clickable ${openIndex === i ? 'active' : ''}`} 
-              onClick={() => setOpenIndex(openIndex === i ? null : i)}
-            >
-              <span className="prompt">{'>'}</span> 
-              <span className="cmd-command">cat faq_{i+1}.txt --title "{item.q}"</span>
+          <div key={i} className="terminal-entry" style={{ marginBottom: '24px' }}>
+            <div className="cmd-line">
+              <span className="prompt">{'>'}</span>
+              <span className="cmd-command" style={{ fontWeight: 'bold', color: 'var(--accent)' }}>{item.q}</span>
             </div>
-            {openIndex === i && (
-              <motion.div 
-                initial={{ opacity: 0, height: 0 }}
-                animate={{ opacity: 1, height: 'auto' }}
-                className="cmd-response"
-              >
-                {item.a}
-              </motion.div>
-            )}
+            <div className="cmd-response" style={{ opacity: 1, margin: '8px 0 0 24px' }}>
+              {item.a}
+            </div>
           </div>
         ))}
         <div className="cmd-line">
@@ -115,8 +98,8 @@ export const Testimonials = () => (
           { text: "The Website-in-a-Week was actually delivered in 6 days. The animations are so smooth they feel like native apps.", author: "Founder, Alpha Retail Group" },
           { text: "Our GMB reviews went from 3.2 to 4.8 in 3 months using their reputation system. Best ROI we've seen this year.", author: "Director, Coastal Real Estate" }
         ].map((t, i) => (
-          <motion.div 
-            key={i} 
+          <motion.div
+            key={i}
             whileHover={{ y: -5 }}
             className="testimonial-card"
           >

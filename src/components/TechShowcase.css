@@ -1,0 +1,281 @@
+/* ===== TECH SHOWCASE ===== */
+.tech-showcase-section {
+    padding: 120px 0;
+    background: var(--bg);
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-showcase-grid {
+    display: grid;
+    grid-template-columns: 400px 1fr;
+    gap: 64px;
+    margin-top: 64px;
+    align-items: center;
+}
+
+.tech-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.tech-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 24px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.tech-card:hover {
+    background: var(--surface-alt);
+    transform: translateX(8px);
+}
+
+.tech-card.active {
+    background: var(--surface-alt);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.tech-card-icon {
+    margin-bottom: 16px;
+}
+
+.tech-card-content h3 {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+}
+
+.tech-card-content p {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+.tech-card-indicator {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    transform-origin: left;
+}
+
+.tech-visual {
+    position: relative;
+    height: 500px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.tech-visual-content {
+    position: relative;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+}
+
+.tech-visual-icon {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    border: 2px solid;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 48px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    position: relative;
+    z-index: 2;
+}
+
+.tech-features {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    max-width: 400px;
+    position: relative;
+    z-index: 2;
+}
+
+.tech-feature {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    color: var(--text-primary);
+}
+
+.feature-bullet {
+    width: 24px;
+    height: 24px;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.feature-text {
+    flex: 1;
+}
+
+.tech-grid-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+    z-index: 0;
+    opacity: 0.3;
+}
+
+.grid-line {
+    height: 1px;
+    width: 100%;
+    transform-origin: left;
+}
+
+.tech-particles {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+}
+
+.particle:nth-child(1) {
+    left: 10%;
+    top: 20%;
+}
+
+.particle:nth-child(2) {
+    left: 30%;
+    top: 40%;
+}
+
+.particle:nth-child(3) {
+    left: 50%;
+    top: 60%;
+}
+
+.particle:nth-child(4) {
+    left: 70%;
+    top: 30%;
+}
+
+.particle:nth-child(5) {
+    left: 20%;
+    top: 70%;
+}
+
+.particle:nth-child(6) {
+    left: 80%;
+    top: 50%;
+}
+
+.particle:nth-child(7) {
+    left: 40%;
+    top: 80%;
+}
+
+.particle:nth-child(8) {
+    left: 60%;
+    top: 10%;
+}
+
+.tech-progress {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 48px;
+}
+
+.progress-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.progress-dot:hover {
+    transform: scale(1.2);
+}
+
+@media (max-width: 1024px) {
+    .tech-showcase-grid {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
+    .tech-cards {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .tech-visual {
+        height: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .tech-showcase-section {
+        padding: 80px 0;
+    }
+
+    .tech-card {
+        padding: 20px;
+    }
+
+    .tech-visual {
+        height: 350px;
+    }
+
+    .tech-visual-content {
+        padding: 32px;
+    }
+
+    .tech-visual-icon {
+        width: 100px;
+        height: 100px;
+        margin-bottom: 32px;
+    }
+
+    .tech-visual-icon svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .tech-feature {
+        font-size: 0.8rem;
+    }
+}

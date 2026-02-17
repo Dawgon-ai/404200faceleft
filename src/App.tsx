@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Header, ClientMarquee, PricingMatrix, Testimonials, FAQSection, Footer } from './components/Sections';
 import Hero from './components/Hero';
 import Services from './components/Services';
-import RentalDemo from './components/RentalDemo';
+import TechShowcase from './components/TechShowcase';
 import ChatWidget from './components/ChatWidget';
 
 const App = () => {
@@ -11,15 +11,15 @@ const App = () => {
   return (
     <div className="app-root">
       <Header onInitChat={() => setChatOpen(true)} />
-      
+
       {/* Hero with new Animations */}
       <Hero onInitChat={() => setChatOpen(true)} />
-      
+
       {/* Marquee */}
       <ClientMarquee />
-      
-      {/* New Rental Client Demo Showcase */}
-      <RentalDemo />
+
+      {/* Tech Stack Showcase */}
+      <TechShowcase />
 
       {/* Services with Cyprus Market Focus */}
       <Services />

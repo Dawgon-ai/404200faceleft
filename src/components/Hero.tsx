@@ -5,25 +5,25 @@ import MagneticButton from './MagneticButton';
 const Hero = ({ onInitChat }: { onInitChat: () => void }) => {
     const [isError, setIsError] = useState(true);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setIsError(prev => !prev);
-        }, 3500); // Faster toggle for more dynamic feel
-        return () => clearInterval(interval);
-    }, []);
+    // Faster transitions config
+    const fastTransition = { duration: 0.25, ease: [0.23, 1, 0.32, 1] };
 
     const scanlineVariants = {
         hidden: { opacity: 0 },
-        visible: { opacity: 0.1, y: [0, 500], transition: { repeat: Infinity, duration: 2, ease: "linear" } }
+        visible: { opacity: 0.15, y: [0, 400], transition: { repeat: Infinity, duration: 1.5, ease: "linear" } }
+    };
+
+    const terminalLineVariants = {
+        hidden: { opacity: 0, x: -5 },
+        visible: (i: number) => ({
+            opacity: 1,
+            x: 0,
+            transition: { delay: i * 0.2, duration: 0.3 }
+        })
     };
 
     return (
-        <section
-            className="hero-section"
-            onMouseEnter={() => setIsError(false)}
-            onMouseLeave={() => setIsError(true)}
-        >
-            {/* Background Effects */}
+        <section className="hero-section" style={{ overflow: 'hidden', position: 'relative' }}>
             <AnimatePresence>
                 {isError && (
                     <motion.div
@@ -34,45 +34,40 @@ const Hero = ({ onInitChat }: { onInitChat: () => void }) => {
                         variants={scanlineVariants}
                         style={{
                             position: 'absolute', top: 0, left: 0, right: 0, bottom: 0,
-                            background: 'linear-gradient(to bottom, transparent 50%, rgba(0,0,0,0.5) 51%)',
-                            backgroundSize: '100% 4px',
+                            background: 'linear-gradient(to bottom, transparent 50%, rgba(204,255,0,0.02) 51%)',
+                            backgroundSize: '100% 2px',
                             pointerEvents: 'none',
-                            zIndex: 0
+                            zIndex: 0,
+                            opacity: 0.5
                         }}
                     />
                 )}
             </AnimatePresence>
 
-            <div className="container" style={{ position: 'relative', zIndex: 1 }}>
-                <div className="hero-grid">
+            <div className="container" style={{ position: 'relative', zIndex: 1, height: '100%', display: 'flex', alignItems: 'center' }}>
+                <div className="hero-grid" style={{ width: '100%' }}>
                     <motion.div
                         className="hero-text-content"
-                        initial={{ opacity: 0, x: -30 }}
+                        initial={{ opacity: 0, x: -20 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.6 }}
+                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <div className={`protocol-label ${isError ? 'err' : 'ok'}`}>
-                            <AnimatePresence mode="wait">
-                                <motion.span
-                                    key={isError ? "fail" : "opt"}
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, y: -10 }}
-                                    transition={{ duration: 0.2 }}
-                                >
-                                    {isError ? 'CRITICAL_SYSTEM_FAILURE_DETECTED' : 'OPTIMIZATION_PROTOCOL_ENGAGED'}
-                                </motion.span>
-                            </AnimatePresence>
+                        <div
+                            className={`protocol-badge ${isError ? 'err' : 'ok'}`}
+                            onClick={() => setIsError(!isError)}
+                        >
+                            {isError ? 'CRITICAL_SYSTEM_FAILURE_DETECTED' : 'OPTIMIZATION_PROTOCOL_ENGAGED'}
                         </div>
 
-                        <h1 className={`hero-title ${isError ? 'glitch-active' : 'resolved-active'}`} style={{ minHeight: '1.2em' }}>
+                        <h1 className={`hero-title ${isError ? 'glitch-active' : 'resolved-active'}`}>
                             <AnimatePresence mode="wait">
                                 <motion.span
                                     key={isError ? "404" : "200"}
-                                    initial={{ opacity: 0, filter: 'blur(10px)' }}
-                                    animate={{ opacity: 1, filter: 'blur(0px)' }}
-                                    exit={{ opacity: 0, filter: 'blur(5px)' }}
-                                    transition={{ duration: 0.4 }}
+                                    initial={{ opacity: 0, y: 15 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    exit={{ opacity: 0, y: -15 }}
+                                    transition={{ duration: 0.3 }}
+                                    style={{ display: 'block' }}
                                 >
                                     {isError ? "404_NOT_FOUND" : "200_STATUS_OK"}
                                 </motion.span>
@@ -80,21 +75,19 @@ const Hero = ({ onInitChat }: { onInitChat: () => void }) => {
                         </h1>
 
                         <p className="hero-description">
-                            Boring websites are a technical debt. We build animated, lightning-fast
-                            systems and AI-driven workflows that turn businesses into local legends.
-                            Identify the error. Deploy the solution.
+                            Boring websites are a technical debt. We build animated, lightning-fast systems and AI-driven workflows that turn businesses into local legends. Identify the error. Deploy the solution.
                         </p>
 
                         <div className="hero-actions">
                             <MagneticButton className="btn-primary" onClick={onInitChat}>
-                                INIT_DEPLOYMENT
+                                {isError ? 'INIT_DEPLOYMENT' : 'INIT_SCALING'}
                             </MagneticButton>
 
                             <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                                 className="btn-secondary"
-                                onClick={() => document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' })}
+                                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
                             >
                                 VIEW_PROTOCOLS
                             </motion.button>
@@ -103,16 +96,20 @@ const Hero = ({ onInitChat }: { onInitChat: () => void }) => {
 
                     <motion.div
                         className="hero-visual"
-                        initial={{ opacity: 0, scale: 0.95 }}
+                        initial={{ opacity: 0, scale: 0.98 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.6, delay: 0.2 }}
+                        transition={{ duration: 0.4, delay: 0.1 }}
                     >
                         <div className={`terminal-display ${isError ? 'err-state' : 'ok-state'}`}>
                             <div className="terminal-header">
-                                <div className="dots"><span></span><span></span><span></span></div>
+                                <div className="dots">
+                                    <span style={{ background: '#ff5f56' }}></span>
+                                    <span style={{ background: '#ffbd2e' }}></span>
+                                    <span style={{ background: '#27c93f' }}></span>
+                                </div>
                                 <span className="term-title">sys_monitor.sh</span>
                             </div>
-                            <div className="terminal-body">
+                            <div className="terminal-body" style={{ fontSize: '0.85rem' }}>
                                 <AnimatePresence mode="wait">
                                     {isError ? (
                                         <motion.div
@@ -120,12 +117,13 @@ const Hero = ({ onInitChat }: { onInitChat: () => void }) => {
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
+                                            transition={fastTransition}
                                         >
-                                            <div className="line">{'>'} checking_uplink... <span style={{ color: 'var(--error)' }}>FAIL</span></div>
+                                            <div className="line" style={{ color: '#ff5f56' }}>{'>'} checking_uplink... FAIL</div>
                                             <div className="line">{'>'} packet_loss: 44%</div>
                                             <div className="line">{'>'} error_code: 0x404</div>
                                             <div className="line">{'>'} system_unstable: true</div>
-                                            <div className="line">{'>'} <span className="cursor">_</span></div>
+                                            <div className="line" style={{ marginTop: '12px' }}>{'>'} <span className="cursor">_</span></div>
                                         </motion.div>
                                     ) : (
                                         <motion.div
@@ -133,12 +131,13 @@ const Hero = ({ onInitChat }: { onInitChat: () => void }) => {
                                             initial={{ opacity: 0 }}
                                             animate={{ opacity: 1 }}
                                             exit={{ opacity: 0 }}
+                                            transition={fastTransition}
                                         >
-                                            <div className="line">{'>'} optimizing_assets... <span style={{ color: 'var(--accent)' }}>DONE</span></div>
-                                            <div className="line">{'>'} caching: enabled</div>
-                                            <div className="line">{'>'} core_vitals: 100</div>
-                                            <div className="line">{'>'} deployment: ready</div>
-                                            <div className="line">{'>'} <span className="cursor">_</span></div>
+                                            <div className="line" style={{ color: 'var(--accent)' }}>{'>'} syncing_nodes... OK</div>
+                                            <div className="line">{'>'} integrity_check: 100%</div>
+                                            <div className="line">{'>'} version: 2.4.0_STABLE</div>
+                                            <div className="line">{'>'} system_status: nominal</div>
+                                            <div className="line" style={{ marginTop: '12px' }}>{'>'} <span className="cursor">_</span></div>
                                         </motion.div>
                                     )}
                                 </AnimatePresence>
