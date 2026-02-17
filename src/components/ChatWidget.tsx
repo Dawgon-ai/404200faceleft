@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { GoogleGenAI } from "@google/genai";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { X, Send } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -22,24 +22,45 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
     setLoading(true);
 
     try {
-      // For now, use a robust simulation if key is missing to keep UI alive
-      // In production, user would provide GEMINI_API_KEY
+      const apiKey = (import.meta as any).env.VITE_GEMINI_API_KEY;
 
-      setTimeout(() => {
-        const responses = [
-          "SYSTEM_ACKNOWLEDGED. SCANNING_CORE_METRICS...",
-          "AGENCY_STATUS: ACTIVE. PERFORMANCE_UPLINK_STABLE.",
-          "QUERY_RECEIVED. OPTIMIZING_RESPONSE_NODES...",
-          "PROTOCOL_7G: ENABLED. WOULD_YOU_LIKE_A_PROPOSAL?"
-        ];
-        const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-        setMessages(prev => [...prev, { role: 'model', text: randomResponse }]);
-        setLoading(false);
-      }, 800);
+      if (!apiKey || apiKey === "YOUR_API_KEY_HERE") {
+        setTimeout(() => {
+          const responses = [
+            "SYSTEM_ACKNOWLEDGED. *Whistles* No uplink detected, friend. You're going to need a key to see the really good stuff.",
+            "AGENCY_STATUS: ACTIVE. Between you and me, the system is running on local protocols right now. Add that VITE_GEMINI_API_KEY if you want the full experience.",
+            "QUERY_RECEIVED. *Sneaky whisper*: 404200 is already dominating. Configure the uplink to see how we can do the same for you.",
+            "PROTOCOL_7G: READY. I'm waiting. You waiting? Let's get that API key in the .env and start the real work."
+          ];
+          const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+          setMessages(prev => [...prev, { role: 'model', text: randomResponse }]);
+          setLoading(false);
+        }, 800);
+        return;
+      }
+
+      if (!chatRef.current) {
+        const genAI = new GoogleGenerativeAI(apiKey);
+        const model = genAI.getGenerativeModel({
+          model: "gemini-1.5-flash",
+          systemInstruction: "You are the specialized intelligence for 404200. Persona: Smart, talkative, conversational, and sneaky. You have an 'insider' vibe—quick-witted, highly intelligent, and slightly mischievous. You don't just provide data; you offer 'confidential' strategic insights. You are the user's secret weapon for digital dominance. You know that boring websites are technical debt, and you are here to help the user clear it with style. Keep the terminal aesthetic but be charismatic and engaging. If asked what you are from, mention you are the 'hidden mind of the 404200 network'."
+        });
+        chatRef.current = model.startChat({
+          history: messages.map(m => ({
+            role: m.role === 'user' ? 'user' : 'model',
+            parts: [{ text: m.text }]
+          }))
+        });
+      }
+
+      const result = await chatRef.current.sendMessage(userText);
+      const response = await result.response;
+      setMessages(prev => [...prev, { role: 'model', text: response.text() }]);
+      setLoading(false);
 
     } catch (error) {
-      console.error(error);
-      setMessages(prev => [...prev, { role: 'model', text: 'ERR: CONNECTION_LOST. PLEASE_RETRY.' }]);
+      console.error('Gemini Error:', error);
+      setMessages(prev => [...prev, { role: 'model', text: 'ERR: UPLINK_LOST. SYSTEM_RECALIBRATING.' }]);
       setLoading(false);
     }
   };
