@@ -9,15 +9,24 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
   ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
+  const [consecutiveErrors, setConsecutiveErrors] = useState(0);
+  const [teaBreakMode, setTeaBreakMode] = useState(false);
   const chatRef = useRef<any>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const teaBreakTimerRef = useRef<any>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [messages, loading]);
+  }, [messages, loading, teaBreakMode]);
+
+  useEffect(() => {
+    return () => {
+      if (teaBreakTimerRef.current) clearTimeout(teaBreakTimerRef.current);
+    };
+  }, []);
 
   const handleSend = async () => {
-    if (!input.trim()) return;
+    if (!input.trim() || teaBreakMode) return;
     const userText = input;
     setInput('');
     setMessages(prev => [...prev, { role: 'user', text: userText }]);
@@ -64,21 +73,39 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
       const text = response.text();
 
       setMessages(prev => [...prev, { role: 'model', text: text }]);
+      setConsecutiveErrors(0);
       setLoading(false);
 
     } catch (error: any) {
       console.error('Detailed Gemini Error:', error);
 
-      let errorMsg = 'ERR: UPLINK_LOST.';
-      const msg = error?.message || '';
+      const errorResponses = [
+        "Spilled my tea, governor! The uplink has gone all wobbly. Check that API key in the .env, would you?",
+        "Right, this is a bit embarrassing. My brain's gone on a strike. Check your connection or the Gemini key.",
+        "Bloody hell! The signal is weaker than a cup of water masquerading as tea. Recheck that VITE_GEMINI_API_KEY.",
+        "System's having a proper tantrum. I can't reach the mother-ship. Are we sure the key is valid, mate?",
+        "Cor blimey! My digital pigeons aren't delivering messages. Something's amiss with the connection, dear.",
+        "A proper kerfuffle! My circuits are doing the cha-cha. Perhaps a quick check of the API key will sort it?",
+        "Oh dear, oh dear. It seems I've hit a bit of a snag. My apologies, but the digital ether is playing tricks on me. Is the API key in order?",
+        "My apologies, mate, but my connection to the grand network is as reliable as a British summer. Could you check the API key for me?"
+      ];
 
-      if (msg.includes('403')) errorMsg = 'ERR: AUTH_DENIED. RECHECK_KEY.';
-      else if (msg.includes('API_KEY_INVALID')) errorMsg = 'ERR: INVALID_KEY.';
-      else if (msg.includes('network')) errorMsg = 'ERR: NETWORK_TIMEOUT.';
-      else if (msg.includes('SAFETY')) errorMsg = 'ERR: RESPONSE_BLOCKED_BY_SAFETY.';
-
-      const snippet = msg.substring(0, 40);
-      setMessages(prev => [...prev, { role: 'model', text: `${errorMsg} [${snippet}...]` }]);
+      const randomError = errorResponses[Math.floor(Math.random() * errorResponses.length)];
+      setConsecutiveErrors(prev => {
+        const next = prev + 1;
+        if (next >= 3) {
+          setTeaBreakMode(true);
+          teaBreakTimerRef.current = setTimeout(() => {
+            setTeaBreakMode(false);
+            setConsecutiveErrors(0);
+            setMessages(prevMsgs => [...prevMsgs, { role: 'model', text: "Right, tea break's over! Sir Systems is back online and ready for action. What's next, dear?" }]);
+          }, 30000);
+          setMessages(prevMsgs => [...prevMsgs, { role: 'model', text: `[SIR_SYSTEMS_OFFLINE]: Blimey! That's three errors in a row. Sir Systems is off for a mandatory tea break to recalibrate. My apologies, governor. I'll be back in a jiffy!` }]);
+        } else {
+          setMessages(prevMsgs => [...prevMsgs, { role: 'model', text: `[SIR_SYSTEMS_ERROR]: ${randomError}` }]);
+        }
+        return next;
+      });
       setLoading(false);
     }
   };
@@ -111,6 +138,7 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
               </div>
             ))}
             {loading && <div className="chat-loading">{'>'} PROCESSING_QUERY...</div>}
+            {teaBreakMode && <div className="chat-loading">{'>'} SIR_SYSTEMS_ON_TEA_BREAK...</div>}
             <div ref={messagesEndRef} />
           </div>
           <div className="chat-footer">
@@ -120,10 +148,11 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="ENTER_COMMAND..."
+              placeholder={teaBreakMode ? "SIR_SYSTEMS_IS_ON_TEA_BREAK..." : "ENTER_COMMAND..."}
               autoFocus
+              disabled={teaBreakMode}
             />
-            <button onClick={handleSend}><Send size={14} /></button>
+            <button onClick={handleSend} disabled={teaBreakMode}><Send size={14} /></button>
           </div>
         </motion.div>
       )}

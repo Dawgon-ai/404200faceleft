@@ -13,7 +13,8 @@ import {
     Mic,
     Database,
     Globe,
-    Lock
+    Lock,
+    Users
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -49,7 +50,7 @@ const Services = () => {
             <div className="container">
                 <div className="section-header">
                     <h2 className="section-title">SYSTEM_MODULES</h2>
-                    <p className="section-subtitle">Engineered for absolute reliability and high-speed delivery.</p>
+                    <p className="section-subtitle">Engineered for absolute reliability and massive magnitude.</p>
                 </div>
 
                 <div className="market-focus">
@@ -57,27 +58,27 @@ const Services = () => {
                 </div>
                 <div className="services-grid">
                     <ServiceBlock
-                        icon={Bot}
+                        icon={Users}
                         title="AI_CONSULTANTS"
                         price="$1,500+"
-                        subtitle="We train your team for a competitive edge."
-                        items={["Strategic AI Implementation", "Workplace Efficiency Audits", "Fun-to-learn Team Training"]}
+                        subtitle="Full team training on cutting-edge AI strategy. We find what's hidden online and make it fun to learn."
+                        items={["Workplace Efficiency Audits", "Competitive Edge Strategy", "Interactive AI Workshops"]}
                         delay={1}
                     />
                     <ServiceBlock
                         icon={Cpu}
                         title="INTELLIGENT_AGENTS"
                         price="$2,200+"
-                        subtitle="Task-doers integratable with API MCPs."
-                        items={["Big Data Communication", "Voice-Prompted Task Execution", "Automated CRM Logic"]}
+                        subtitle="Smart bots integratable with API MCPs. Communicating and doing tasks based on big data."
+                        items={["Voice-Prompted Task Execution", "Auto-CRM & Auditions", "Data-Driven Logic Engines"]}
                         delay={2}
                     />
                     <ServiceBlock
                         icon={Database}
                         title="MASSIVE_SCRAPING"
                         price="$800+"
-                        subtitle="Data extraction at massive magnitude."
-                        items={["High-Scale Data Pipelines", "Competitor Intelligence", "Automated Market Sync"]}
+                        subtitle="Scraping systems with massive magnitude. High-velocity data extraction and sync."
+                        items={["High-Scale Pipelines", "Market Competitor Scrapes", "Massive Data Archiving"]}
                         delay={3}
                     />
                 </div>
@@ -91,55 +92,55 @@ const Services = () => {
                         icon={Zap}
                         title="MARKETING_AUTO_FLOWS"
                         price="$1,200+"
-                        subtitle="Smart content flows & high-conversion emails."
-                        items={["H.O.R Optimized Content", "Automated Lead Nurturing", "Smart Campaign Logic"]}
+                        subtitle="Smart content flows & high-conversion emails. H.O.R optimized content for empire growth."
+                        items={["Email Campaign Logic", "Smart Content Pipelines", "Automated Lead Nurturing"]}
                         delay={4}
                     />
                     <ServiceBlock
                         icon={TrendingUp}
                         title="DOMINANT_SEO"
                         price="$500/mo"
-                        subtitle="No expensive SaaS needed. Google has it all."
-                        items={["Native Search Dominance", "Zero-SaaS Infrastructure", "Competitive Keyword Hijacking"]}
+                        subtitle="Stop paying for expensive SaaS. Google has everything—we just know how to use it dude."
+                        items={["Zero-SaaS Infrastructure", "Native Google Visibility", "Market Hierarchy Hijacking"]}
                         delay={5}
                     />
                     <ServiceBlock
                         icon={Layout}
-                        title="PREMIUM_MOBILE_APPS"
+                        title="HIGH_STATUS_MOBILE"
                         price="$3,000+"
-                        subtitle="Aesthetic-first design that converts."
-                        items={["High-Status UI/UX", "Offline Persistence Logic", "App Store Compliance"]}
+                        subtitle="Design aspects prioritized over simple notifications. Prestige that converts users."
+                        items={["Ultra-Premium UI/UX", "Offline Persistence", "Brand Status Architecture"]}
                         delay={6}
                     />
                 </div>
 
                 <br /><br />
                 <div className="market-focus">
-                    <h3 className="market-title">:: CATEGORY: SECURE_INFRASTRUCTURE ::</h3>
+                    <h3 className="market-title">:: CATEGORY: CORE_INFRASTRUCTURE ::</h3>
                 </div>
                 <div className="services-grid">
                     <ServiceBlock
                         icon={Lock}
-                        title="SECURE_SYSTEMS_VC"
+                        title="SECURE_SYSTEM_VAULTS"
                         price="$2,500+"
-                        subtitle="Hardened architecture for high-risk data."
-                        items={["AES-256 Encryption", "Virtual IT / MSP Support", "Total Data Sovereignty"]}
+                        subtitle="Total data sovereignty. Don't touch web systems? We build core fortresses."
+                        items={["Hardened AES-256 Layers", "Virtual IT / MSP Support", "Confidential Logic Boards"]}
                         delay={7}
                     />
                     <ServiceBlock
                         icon={Network}
                         title="VIRTUAL_IT_UPLINK"
                         price="$1,200/mo"
-                        subtitle="24/7 shielding and infrastructure management."
-                        items={["Remote Workspace Setup", "Access Control (IAM)", "Uptime Monitoring"]}
+                        subtitle="24/7 shielding. We don't 'touch' your site, we protect your empire from the outside in."
+                        items={["Access Control (IAM)", "Uptime Monitoring", "Remote Core Setup"]}
                         delay={8}
                     />
                     <ServiceBlock
                         icon={Globe}
-                        title="WEB_SYSTEMS_CORE"
+                        title="CORE_LOGIC_ENGINE"
                         price="$1,400+"
-                        subtitle="Full-scale web applications and dashboards."
-                        items={["Tailwind + React Stack", "Edge Deployment", "Scalable Logic Boards"]}
+                        subtitle="Absolute reliability for high-status systems. Not just another web app."
+                        items={["Protocol Integration", "Edge Deployment", "Scalable Business Logic"]}
                         delay={9}
                     />
                 </div>
