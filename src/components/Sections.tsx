@@ -164,26 +164,32 @@ export const PricingMatrix = () => (
 
 export const Footer = () => (
   <footer className="footer">
-    <div className="container footer-grid">
-      <div className="brand-stack">
-        <span className="logo-text">404<span className="logo-accent">200</span></span>
-        <p>This company understands systems.</p>
-        <div className="contact-info">
-          <a href="mailto:404200ssh@proton.me" style={{ color: 'inherit', textDecoration: 'none' }}>404200ssh@proton.me</a>
-          <a href="tel:+35794488699" style={{ color: 'inherit', textDecoration: 'none' }}>[SECURE_VOICE]</a>
-          <span>Limassol, Cyprus</span>
+    <div className="container">
+      <div className="footer-top">
+        <div className="spacer"></div>
+        <div className="footer-logo">
+          <span className="logo-text">404<span className="logo-accent">200</span></span>
         </div>
       </div>
-      <div className="footer-links">
-        <div>
-          <h5>SYSTEM_LINKS</h5>
-          <a href="tel:+35794488699">Contact_Us</a>
-          <a href="mailto:404200ssh@proton.me">Email_Gateway</a>
+
+      <div className="footer-bottom">
+        <div className="footer-col">
+          <div className="col-label">LOCATION</div>
+          <div>Limassol, Cyprus</div>
         </div>
-        <div>
-          <h5>LEGAL_PROTOCOL</h5>
-          <a href="#">Privacy_Notice</a>
-          <a href="#">Terms_of_Service</a>
+
+        <div className="footer-col">
+          <div className="col-label">BUSINESS_INQUIRIES</div>
+          <a href="mailto:404200ssh@proton.me">404200ssh@proton.me</a>
+        </div>
+
+        <div className="footer-col">
+          <div className="col-label">DIRECT_UPLINK</div>
+          <a href="tel:+35794488699">Contact_Us</a>
+        </div>
+
+        <div className="footer-col copyright-col">
+          <div>© 2026, ALL RIGHTS RESERVED.</div>
         </div>
       </div>
     </div>
