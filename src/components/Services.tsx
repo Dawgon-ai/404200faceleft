@@ -21,7 +21,7 @@ import {
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
-const ServiceBlock = ({ icon: Icon, title, price, subtitle, items, delay }: any) => (
+const ServiceBlock = ({ icon: Icon, title, price, subtitle, items, delay, cta = "INIT_MODULE_SYNC" }: any) => (
     <motion.div
         className="service-block"
         initial={{ opacity: 0, y: 15 }}
@@ -43,7 +43,7 @@ const ServiceBlock = ({ icon: Icon, title, price, subtitle, items, delay }: any)
                 </div>
             ))}
         </div>
-        <button className="btn-block-action">INIT_MODULE_SYNC</button>
+        <button className="btn-block-action">{cta}</button>
     </motion.div>
 );
 
@@ -64,25 +64,28 @@ const Services = () => {
                         icon={Layout}
                         title="WEB_&_MOBILE_APPS"
                         price="$3,000+"
-                        subtitle="High-status design prioritized over simple notifications. Prestige that converts users on every platform."
+                        subtitle="Built to dominate, not decorate. Prestige that converts users on every platform."
                         items={["Ultra-Premium UI/UX", "Offline Persistence Logic", "App Store & Web Scale Architecture"]}
                         delay={1}
+                        cta="DEPLOY_INTERFACE"
                     />
                     <ServiceBlock
                         icon={Globe}
                         title="CUSTOM_BUSINESS_SYSTEMS"
                         price="$2,500+"
-                        subtitle="Custom-made SaaS replacements (HubSpot/Sandbox style). All-in-one dashboards built exactly for your logic."
+                        subtitle="Custom-made SaaS replacements. All-in-one dashboards built exactly for your vertical logic."
                         items={["Dedicated Business Hubs", "Unified Data Dashboards", "Zero-SaaS Infrastructure"]}
                         delay={2}
+                        cta="ACTIVATE_SYSTEM"
                     />
                     <ServiceBlock
                         icon={Cpu}
                         title="INTELLIGENT_AGENTS"
                         price="$2,200+"
-                        subtitle="Smart bots integratable with API MCPs. Communicating and doing tasks based on big data."
-                        items={["Voice-Prompted Task Execution", "Auto-CRM Entry & Logic", "Strategic AI Task-Doers"]}
+                        subtitle="Agents that execute while you sleep. Integrated with API MCPs to handle your heavy lifting."
+                        items={["Voice-Prompted Execution", "Auto-CRM Entry & Logic", "Strategic AI Task-Doers"]}
                         delay={3}
+                        cta="ENGAGE_PROTOCOL"
                     />
                 </div>
 
@@ -95,25 +98,28 @@ const Services = () => {
                         icon={Search}
                         title="LLM_&_TOPIC_DOMINATION"
                         price="$1,200/mo"
-                        subtitle="We bring visibility in LLMs. Weekly top-notch content and strategies to dominate search and AI citations."
-                        items={["LLM Citation Engineering", "Topic Authority Hijacking", "Weekly Engaging Content"]}
+                        subtitle="We bring visibility in LLMs. Weekly top-notch strategies to dominate search and AI citations."
+                        items={["LLM Citation Engineering", "Topic Authority Hijacking", "Weekly Market Coverage"]}
                         delay={4}
+                        cta="INFILTRATE_QUERY"
                     />
                     <ServiceBlock
                         icon={TrendingUp}
                         title="DOMINANT_SEO"
                         price="$500/mo"
-                        subtitle="Stop paying for expensive SaaS. Google has everything—we just know how to use it dude."
-                        items={["Zero-SaaS Visibility", "Native Search Domination", "Market Hierarchy Architecture"]}
+                        subtitle="Stop paying for expensive SaaS. Google has everything—we just unlock the hierarchy."
+                        items={["Zero-SaaS Visibility", "Native Search Dominance", "Market Hierarchy Architecture"]}
                         delay={5}
+                        cta="HIJACK_SEARCH"
                     />
                     <ServiceBlock
                         icon={Zap}
                         title="MARKETING_AUTO_EMPIRE"
                         price="$1,800+"
-                        subtitle="Full lead-capture to close automation. Smart flows, conversion-heavy emails, and automated lead capture."
-                        items={["Automated Lead Capture", "Full-Funnel Sales Logic", "H.O.R Optimized Content"]}
+                        subtitle="Full lead-capture to close automation. Smart flows and conversion-heavy sales logic."
+                        items={["Automated Lead Capture", "Full-Funnel Logic", "H.O.R Optimized Content"]}
                         delay={6}
+                        cta="AUTO_SCALE_FLOW"
                     />
                 </div>
 
@@ -126,9 +132,10 @@ const Services = () => {
                         icon={Users}
                         title="AI_CONSULTANTS"
                         price="$1,500+"
-                        subtitle="Full team training on cutting-edge AI strategy. We find what's hidden online and make it fun to learn."
+                        subtitle="Full team training on cutting-edge AI strategy. We find the efficiency gaps other agencies miss."
                         items={["Workplace Efficiency Audits", "Competitive Edge Training", "AI Strategy Roadmap"]}
                         delay={7}
+                        cta="UPLINK_CONSULT"
                     />
                     <ServiceBlock
                         icon={Database}
@@ -137,14 +144,16 @@ const Services = () => {
                         subtitle="Scraping systems with massive magnitude. High-velocity data extraction and sync pipelines."
                         items={["High-Scale Data Pipelines", "Market Competitor Scrapes", "Automated Data Archiving"]}
                         delay={8}
+                        cta="SYNC_DATA_MODULE"
                     />
                     <ServiceBlock
                         icon={Network}
                         title="VIRTUAL_IT_UPLINK"
                         price="$1,200/mo"
-                        subtitle="24/7 shielding. We don't 'touch' your site, we protect your empire from the outside in."
+                        subtitle="24/7 shielding. We don't touch your site, we protect your empire from the outside in."
                         items={["Access Control (IAM)", "Uptime Monitoring", "Infrastructure Shielding"]}
                         delay={9}
+                        cta="SECURE_UPLINK"
                     />
                 </div>
             </div>
