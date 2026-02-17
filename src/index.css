@@ -357,9 +357,9 @@ body {
 
 .marquee-track {
   display: flex;
-  gap: 80px;
-  padding: 0;
-  animation: scroll 30s linear infinite;
+  gap: 120px;
+  padding-right: 120px;
+  animation: scroll 40s linear infinite;
 }
 
 .marquee-track span {
@@ -378,7 +378,7 @@ body {
   }
 
   to {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 }
 

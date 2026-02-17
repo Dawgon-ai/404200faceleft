@@ -26,15 +26,17 @@ export const ClientMarquee = () => (
   <div className="client-marquee">
     <div className="marquee-label">TRUSTED_BY_NODES:</div>
     <div className="marquee-content">
-      {[...Array(4)].map((_, i) => (
+      {[...Array(2)].map((_, i) => (
         <React.Fragment key={i}>
           <div className="marquee-track">
             <span>AMSA_ARCHITECTS</span>
             <span>MEMA_ARCHITECTS</span>
             <span>MARIOS_ECONOMIDES_+_MARIA_AKKELIDOU</span>
-            <span>AMSA_ARCHITECTS</span>
-            <span>MEMA_ARCHITECTS</span>
-            <span>MARIOS_ECONOMIDES_+_MARIA_AKKELIDOU</span>
+            <span>MIX_AND_MATCH_EGYPT</span>
+            <span>EMAAR</span>
+            <span>CONCORDE</span>
+            <span>ORASCOM</span>
+            <span>MERCEDES_BENZ_EGYPT</span>
           </div>
         </React.Fragment>
       ))}
