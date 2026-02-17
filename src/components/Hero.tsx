@@ -133,10 +133,10 @@ const Hero = ({ onInitChat }: { onInitChat: () => void }) => {
                                             exit={{ opacity: 0 }}
                                             transition={fastTransition}
                                         >
-                                            <div className="line" style={{ color: 'var(--accent)' }}>{'>'} syncing_nodes... OK</div>
-                                            <div className="line">{'>'} integrity_check: 100%</div>
-                                            <div className="line">{'>'} version: 2.4.0_STABLE</div>
-                                            <div className="line">{'>'} system_status: nominal</div>
+                                            <div className="line" style={{ color: 'var(--accent)' }}>{'>'} optimizing_assets... DONE</div>
+                                            <div className="line">{'>'} caching: enabled</div>
+                                            <div className="line">{'>'} core_vitals: 100</div>
+                                            <div className="line">{'>'} deployment: ready</div>
                                             <div className="line" style={{ marginTop: '12px' }}>{'>'} <span className="cursor">_</span></div>
                                         </motion.div>
                                     )}
