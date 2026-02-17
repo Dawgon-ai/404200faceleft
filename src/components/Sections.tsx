@@ -170,15 +170,15 @@ export const Footer = () => (
         <p>This company understands systems.</p>
         <div className="contact-info">
           <a href="mailto:404200ssh@proton.me" style={{ color: 'inherit', textDecoration: 'none' }}>404200ssh@proton.me</a>
-          <a href="tel:+35794488699" style={{ color: 'inherit', textDecoration: 'none' }}>+357 94 488699</a>
+          <a href="tel:+35794488699" style={{ color: 'inherit', textDecoration: 'none' }}>[SECURE_VOICE]</a>
           <span>Limassol, Cyprus</span>
         </div>
       </div>
       <div className="footer-links">
         <div>
           <h5>SYSTEM_LINKS</h5>
-          <a href="tel:+35794488699">Phone_Line</a>
-          <a href="mailto:404200ssh@proton.me">Email_Node</a>
+          <a href="tel:+35794488699">Contact_Us</a>
+          <a href="mailto:404200ssh@proton.me">Email_Gateway</a>
         </div>
         <div>
           <h5>LEGAL_PROTOCOL</h5>
