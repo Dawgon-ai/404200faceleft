@@ -173,16 +173,46 @@ export const Footer = () => (
             404
             <span className="logo-accent">
               2
-              <motion.span
-                style={{ display: 'inline-block' }}
-                animate={{ rotate: 360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              >0</motion.span>
-              <motion.span
-                style={{ display: 'inline-block' }}
-                animate={{ rotate: -360 }}
-                transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
-              >0</motion.span>
+              <span className="eye-char" style={{ position: 'relative', display: 'inline-block' }}>
+                0
+                <motion.span
+                  className="eye-pupil"
+                  style={{
+                    position: 'absolute',
+                    top: '40%',
+                    left: '50%',
+                    width: '3px',
+                    height: '3px',
+                    background: 'var(--accent)',
+                    borderRadius: '50%',
+                  }}
+                  animate={{
+                    x: [-2, 2, -2],
+                    y: [-1, 1, -1]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </span>
+              <span className="eye-char" style={{ position: 'relative', display: 'inline-block' }}>
+                0
+                <motion.span
+                  className="eye-pupil"
+                  style={{
+                    position: 'absolute',
+                    top: '40%',
+                    left: '50%',
+                    width: '3px',
+                    height: '3px',
+                    background: 'var(--accent)',
+                    borderRadius: '50%',
+                  }}
+                  animate={{
+                    x: [2, -2, 2],
+                    y: [1, -1, 1]
+                  }}
+                  transition={{ duration: 2, repeat: Infinity }}
+                />
+              </span>
             </span>
           </span>
         </div>
@@ -205,7 +235,7 @@ export const Footer = () => (
         </div>
 
         <div className="footer-col copyright-col">
-          <div>404400 © 2026, ALL RIGHTS RESERVED.</div>
+          <div>404200 © 2026, ALL RIGHTS RESERVED.</div>
         </div>
       </div>
     </div>

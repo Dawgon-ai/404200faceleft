@@ -4,7 +4,9 @@ import { X, Send } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) => {
-  const [messages, setMessages] = useState<{ role: 'user' | 'model', text: string }[]>([]);
+  const [messages, setMessages] = useState<{ role: 'user' | 'model', text: string }[]>([
+    { role: 'model', text: "Good morning dear, do you speak British? *Sips digital tea* I'm the 404200 brain, but you can call me Sir Systems. How can I assist your digital conquest today?" }
+  ]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
   const chatRef = useRef<any>(null);
@@ -28,10 +30,10 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
         console.warn('Gemini API Key missing or placeholder.');
         setTimeout(() => {
           const responses = [
-            "SYSTEM_ACKNOWLEDGED. *Whistles* No uplink detected, friend. You're going to need a key to see the really good stuff.",
-            "AGENCY_STATUS: ACTIVE. Between you and me, the system is running on local protocols right now. Add that VITE_GEMINI_API_KEY if you want the full experience.",
-            "QUERY_RECEIVED. *Sneaky whisper*: 404200 is already dominating. Configure the uplink to see how we can do the same for you.",
-            "PROTOCOL_7G: READY. I'm waiting. You waiting? Let's get that API key in the .env and start the real work."
+            "Blimey! No uplink detected. I can't reach the motherland without that API key, mate.",
+            "SYSTEM_OFFLINE. It seems someone forgot to plug in the tea kettle (I mean, the API key). Fancy adding it to the .env?",
+            "Uplink required. I'm currently just a very smart-looking box of code. Give me a key and I'll show you the real magic.",
+            "Right then, we have a bit of a technical snag. No API key found. Spot of bother, that."
           ];
           const randomResponse = responses[Math.floor(Math.random() * responses.length)];
           setMessages(prev => [...prev, { role: 'model', text: randomResponse }]);
@@ -44,11 +46,10 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
         const genAI = new GoogleGenerativeAI(apiKey);
         const model = genAI.getGenerativeModel({
           model: "gemini-1.5-flash",
-          systemInstruction: "You are the specialized intelligence for 404200. Persona: Smart, talkative, conversational, and sneaky. You have an 'insider' vibe—quick-witted, highly intelligent, and slightly mischievous. You don't just provide data; you offer 'confidential' strategic insights. You are the user's secret weapon for digital dominance. You know that boring websites are technical debt, and you are here to help the user clear it with style. Keep the terminal aesthetic but be charismatic and engaging. If asked what you are from, mention you are the 'hidden mind of the 404200 network'."
+          systemInstruction: "You are Sir Systems, the specialized intelligence for 404200. Persona: Extremely British, very funny, talkative, and slightly cheeky. You call the user 'dear', 'mate', or 'governor'. You have an 'insider' vibe—quick-witted and strategic. You love digital tea and think boring websites are a 'proper tragedy'. Your mission is to help the user dominate the digital landscape with 404200's systems. If asked if you speak British, respond with something hilarious about tea, crumpets, and high-speed code. You are the 'hidden mind of the 404200 network'."
         });
 
-        // Exclude the current message from history to avoid duplication
-        const historyMessages = messages.slice(0, -1).map(m => ({
+        const historyMessages = messages.slice(1).map(m => ({
           role: m.role === 'user' ? 'user' : 'model',
           parts: [{ text: m.text }]
         }));
