@@ -173,7 +173,12 @@ export const Footer = () => (
             404
             <span className="logo-accent">
               2
-              <span className="eye-char" style={{ position: 'relative', display: 'inline-block' }}>
+              <motion.span
+                className="eye-char"
+                style={{ position: 'relative', display: 'inline-block' }}
+                animate={{ rotate: 360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              >
                 0
                 <motion.span
                   className="eye-pupil"
@@ -192,8 +197,13 @@ export const Footer = () => (
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-              </span>
-              <span className="eye-char" style={{ position: 'relative', display: 'inline-block' }}>
+              </motion.span>
+              <motion.span
+                className="eye-char"
+                style={{ position: 'relative', display: 'inline-block' }}
+                animate={{ rotate: -360 }}
+                transition={{ duration: 4, repeat: Infinity, ease: "linear" }}
+              >
                 0
                 <motion.span
                   className="eye-pupil"
@@ -212,7 +222,7 @@ export const Footer = () => (
                   }}
                   transition={{ duration: 2, repeat: Infinity }}
                 />
-              </span>
+              </motion.span>
             </span>
           </span>
         </div>
