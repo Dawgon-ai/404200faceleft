@@ -14,7 +14,10 @@ import {
     Database,
     Globe,
     Lock,
-    Users
+    Users,
+    Search,
+    Share2,
+    Activity
 } from 'lucide-react';
 import { motion } from 'framer-motion';
 
@@ -67,10 +70,10 @@ const Services = () => {
                     />
                     <ServiceBlock
                         icon={Globe}
-                        title="WEB_SYSTEMS_CORE"
-                        price="$1,400+"
-                        subtitle="Absolute reliability for high-status websites and dashboards. Not just a site, but a core engine."
-                        items={["Tailwind + React Architecture", "Edge Deployment", "Protocol Integration"]}
+                        title="CUSTOM_BUSINESS_SYSTEMS"
+                        price="$2,500+"
+                        subtitle="Custom-made SaaS replacements (HubSpot/Sandbox style). All-in-one dashboards built exactly for your logic."
+                        items={["Dedicated Business Hubs", "Unified Data Dashboards", "Zero-SaaS Infrastructure"]}
                         delay={2}
                     />
                     <ServiceBlock
@@ -78,61 +81,61 @@ const Services = () => {
                         title="INTELLIGENT_AGENTS"
                         price="$2,200+"
                         subtitle="Smart bots integratable with API MCPs. Communicating and doing tasks based on big data."
-                        items={["Voice-Prompted Task Execution", "Auto-CRM & Auditions", "Data-Driven Logic Engines"]}
+                        items={["Voice-Prompted Task Execution", "Auto-CRM Entry & Logic", "Strategic AI Task-Doers"]}
                         delay={3}
                     />
                 </div>
 
                 <br /><br />
                 <div className="market-focus">
-                    <h3 className="market-title">:: CATEGORY: STRATEGIC_GROWTH ::</h3>
+                    <h3 className="market-title">:: CATEGORY: VISIBILITY_&_DOMINATION ::</h3>
                 </div>
                 <div className="services-grid">
+                    <ServiceBlock
+                        icon={Search}
+                        title="LLM_&_TOPIC_DOMINATION"
+                        price="$1,200/mo"
+                        subtitle="We bring visibility in LLMs. Weekly top-notch content and strategies to dominate search and AI citations."
+                        items={["LLM Citation Engineering", "Topic Authority Hijacking", "Weekly Engaging Content"]}
+                        delay={4}
+                    />
                     <ServiceBlock
                         icon={TrendingUp}
                         title="DOMINANT_SEO"
                         price="$500/mo"
                         subtitle="Stop paying for expensive SaaS. Google has everything—we just know how to use it dude."
-                        items={["Zero-SaaS Infrastructure", "Native Google Visibility", "Market Hierarchy Hijacking"]}
-                        delay={4}
-                    />
-                    <ServiceBlock
-                        icon={Users}
-                        title="AI_CONSULTANTS"
-                        price="$1,500+"
-                        subtitle="Full team training on cutting-edge AI strategy. We find what's hidden online and make it fun to learn."
-                        items={["Workplace Efficiency Audits", "Competitive Edge Strategy", "Interactive AI Workshops"]}
+                        items={["Zero-SaaS Visibility", "Native Search Domination", "Market Hierarchy Architecture"]}
                         delay={5}
                     />
                     <ServiceBlock
-                        icon={Database}
-                        title="MASSIVE_SCRAPING"
-                        price="$800+"
-                        subtitle="Scraping systems with massive magnitude. High-velocity data extraction and sync."
-                        items={["High-Scale Pipelines", "Market Competitor Scrapes", "Massive Data Archiving"]}
+                        icon={Zap}
+                        title="MARKETING_AUTO_EMPIRE"
+                        price="$1,800+"
+                        subtitle="Full lead-capture to close automation. Smart flows, conversion-heavy emails, and automated lead capture."
+                        items={["Automated Lead Capture", "Full-Funnel Sales Logic", "H.O.R Optimized Content"]}
                         delay={6}
                     />
                 </div>
 
                 <br /><br />
                 <div className="market-focus">
-                    <h3 className="market-title">:: CATEGORY: INFRASTRUCTURE_&_AUTO ::</h3>
+                    <h3 className="market-title">:: CATEGORY: STRATEGY_&_DATA ::</h3>
                 </div>
                 <div className="services-grid">
                     <ServiceBlock
-                        icon={Zap}
-                        title="MARKETING_AUTO_FLOWS"
-                        price="$1,200+"
-                        subtitle="Smart content flows & high-conversion emails. H.O.R optimized content for empire growth."
-                        items={["Email Campaign Logic", "Smart Content Pipelines", "Automated Lead Nurturing"]}
+                        icon={Users}
+                        title="AI_CONSULTANTS"
+                        price="$1,500+"
+                        subtitle="Full team training on cutting-edge AI strategy. We find what's hidden online and make it fun to learn."
+                        items={["Workplace Efficiency Audits", "Competitive Edge Training", "AI Strategy Roadmap"]}
                         delay={7}
                     />
                     <ServiceBlock
-                        icon={Lock}
-                        title="SECURE_SYSTEM_VAULTS"
-                        price="$2,500+"
-                        subtitle="Total data sovereignty. Don't touch web systems? We build core fortresses from the ground up."
-                        items={["Hardened AES-256 Layers", "Virtual IT / MSP Support", "Confidential Logic Boards"]}
+                        icon={Database}
+                        title="MASSIVE_SCRAPING"
+                        price="$800+"
+                        subtitle="Scraping systems with massive magnitude. High-velocity data extraction and sync pipelines."
+                        items={["High-Scale Data Pipelines", "Market Competitor Scrapes", "Automated Data Archiving"]}
                         delay={8}
                     />
                     <ServiceBlock
@@ -140,7 +143,7 @@ const Services = () => {
                         title="VIRTUAL_IT_UPLINK"
                         price="$1,200/mo"
                         subtitle="24/7 shielding. We don't 'touch' your site, we protect your empire from the outside in."
-                        items={["Access Control (IAM)", "Uptime Monitoring", "Remote Core Setup"]}
+                        items={["Access Control (IAM)", "Uptime Monitoring", "Infrastructure Shielding"]}
                         delay={9}
                     />
                 </div>
