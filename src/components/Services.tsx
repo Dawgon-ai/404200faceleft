@@ -54,16 +54,24 @@ const Services = () => {
                 </div>
 
                 <div className="market-focus">
-                    <h3 className="market-title">:: CATEGORY: AI_STRATEGY_&_AGENTS ::</h3>
+                    <h3 className="market-title">:: CATEGORY: PREMIER_DEVELOPMENT ::</h3>
                 </div>
                 <div className="services-grid">
                     <ServiceBlock
-                        icon={Users}
-                        title="AI_CONSULTANTS"
-                        price="$1,500+"
-                        subtitle="Full team training on cutting-edge AI strategy. We find what's hidden online and make it fun to learn."
-                        items={["Workplace Efficiency Audits", "Competitive Edge Strategy", "Interactive AI Workshops"]}
+                        icon={Layout}
+                        title="WEB_&_MOBILE_APPS"
+                        price="$3,000+"
+                        subtitle="High-status design prioritized over simple notifications. Prestige that converts users on every platform."
+                        items={["Ultra-Premium UI/UX", "Offline Persistence Logic", "App Store & Web Scale Architecture"]}
                         delay={1}
+                    />
+                    <ServiceBlock
+                        icon={Globe}
+                        title="WEB_SYSTEMS_CORE"
+                        price="$1,400+"
+                        subtitle="Absolute reliability for high-status websites and dashboards. Not just a site, but a core engine."
+                        items={["Tailwind + React Architecture", "Edge Deployment", "Protocol Integration"]}
+                        delay={2}
                     />
                     <ServiceBlock
                         icon={Cpu}
@@ -71,7 +79,30 @@ const Services = () => {
                         price="$2,200+"
                         subtitle="Smart bots integratable with API MCPs. Communicating and doing tasks based on big data."
                         items={["Voice-Prompted Task Execution", "Auto-CRM & Auditions", "Data-Driven Logic Engines"]}
-                        delay={2}
+                        delay={3}
+                    />
+                </div>
+
+                <br /><br />
+                <div className="market-focus">
+                    <h3 className="market-title">:: CATEGORY: STRATEGIC_GROWTH ::</h3>
+                </div>
+                <div className="services-grid">
+                    <ServiceBlock
+                        icon={TrendingUp}
+                        title="DOMINANT_SEO"
+                        price="$500/mo"
+                        subtitle="Stop paying for expensive SaaS. Google has everything—we just know how to use it dude."
+                        items={["Zero-SaaS Infrastructure", "Native Google Visibility", "Market Hierarchy Hijacking"]}
+                        delay={4}
+                    />
+                    <ServiceBlock
+                        icon={Users}
+                        title="AI_CONSULTANTS"
+                        price="$1,500+"
+                        subtitle="Full team training on cutting-edge AI strategy. We find what's hidden online and make it fun to learn."
+                        items={["Workplace Efficiency Audits", "Competitive Edge Strategy", "Interactive AI Workshops"]}
+                        delay={5}
                     />
                     <ServiceBlock
                         icon={Database}
@@ -79,13 +110,13 @@ const Services = () => {
                         price="$800+"
                         subtitle="Scraping systems with massive magnitude. High-velocity data extraction and sync."
                         items={["High-Scale Pipelines", "Market Competitor Scrapes", "Massive Data Archiving"]}
-                        delay={3}
+                        delay={6}
                     />
                 </div>
 
                 <br /><br />
                 <div className="market-focus">
-                    <h3 className="market-title">:: CATEGORY: SYSTEMS_&_MARKETING ::</h3>
+                    <h3 className="market-title">:: CATEGORY: INFRASTRUCTURE_&_AUTO ::</h3>
                 </div>
                 <div className="services-grid">
                     <ServiceBlock
@@ -94,38 +125,15 @@ const Services = () => {
                         price="$1,200+"
                         subtitle="Smart content flows & high-conversion emails. H.O.R optimized content for empire growth."
                         items={["Email Campaign Logic", "Smart Content Pipelines", "Automated Lead Nurturing"]}
-                        delay={4}
+                        delay={7}
                     />
-                    <ServiceBlock
-                        icon={TrendingUp}
-                        title="DOMINANT_SEO"
-                        price="$500/mo"
-                        subtitle="Stop paying for expensive SaaS. Google has everything—we just know how to use it dude."
-                        items={["Zero-SaaS Infrastructure", "Native Google Visibility", "Market Hierarchy Hijacking"]}
-                        delay={5}
-                    />
-                    <ServiceBlock
-                        icon={Layout}
-                        title="HIGH_STATUS_MOBILE"
-                        price="$3,000+"
-                        subtitle="Design aspects prioritized over simple notifications. Prestige that converts users."
-                        items={["Ultra-Premium UI/UX", "Offline Persistence", "Brand Status Architecture"]}
-                        delay={6}
-                    />
-                </div>
-
-                <br /><br />
-                <div className="market-focus">
-                    <h3 className="market-title">:: CATEGORY: CORE_INFRASTRUCTURE ::</h3>
-                </div>
-                <div className="services-grid">
                     <ServiceBlock
                         icon={Lock}
                         title="SECURE_SYSTEM_VAULTS"
                         price="$2,500+"
-                        subtitle="Total data sovereignty. Don't touch web systems? We build core fortresses."
+                        subtitle="Total data sovereignty. Don't touch web systems? We build core fortresses from the ground up."
                         items={["Hardened AES-256 Layers", "Virtual IT / MSP Support", "Confidential Logic Boards"]}
-                        delay={7}
+                        delay={8}
                     />
                     <ServiceBlock
                         icon={Network}
@@ -133,14 +141,6 @@ const Services = () => {
                         price="$1,200/mo"
                         subtitle="24/7 shielding. We don't 'touch' your site, we protect your empire from the outside in."
                         items={["Access Control (IAM)", "Uptime Monitoring", "Remote Core Setup"]}
-                        delay={8}
-                    />
-                    <ServiceBlock
-                        icon={Globe}
-                        title="CORE_LOGIC_ENGINE"
-                        price="$1,400+"
-                        subtitle="Absolute reliability for high-status systems. Not just another web app."
-                        items={["Protocol Integration", "Edge Deployment", "Scalable Business Logic"]}
                         delay={9}
                     />
                 </div>
