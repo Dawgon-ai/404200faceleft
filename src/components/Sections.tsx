@@ -37,6 +37,9 @@ export const ClientMarquee = () => (
             <span>CONCORDE</span>
             <span>ORASCOM</span>
             <span>MERCEDES_BENZ_EGYPT</span>
+            <span>LIMASSOL_HUB</span>
+            <span>ALPHA_RETAIL_GROUP</span>
+            <span>COASTAL_REAL_ESTATE</span>
           </div>
         </React.Fragment>
       ))}
@@ -95,7 +98,7 @@ export const Testimonials = () => (
       </div>
       <div className="testimonials-grid">
         {[
-          { text: "404200 completely rebuilt our internal clock-in system. Efficiency increased by 40% overnight. No more manual logs.", author: "Logistics Manager, Limassol Hub" },
+          { text: "404200 fixed our software clutter. They cleaned the mess of multiple platforms into one unified dashboard, accessible via mobile by everyone, everywhere.", author: "Operations Director, Limassol Hub" },
           { text: "The Website-in-a-Week was actually delivered in 6 days. The animations are so smooth they feel like native apps.", author: "Founder, Alpha Retail Group" },
           { text: "Our GMB reviews went from 3.2 to 4.8 in 3 months using their reputation system. Best ROI we've seen this year.", author: "Director, Coastal Real Estate" }
         ].map((t, i) => (
