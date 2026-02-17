@@ -22,9 +22,10 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
     setLoading(true);
 
     try {
-      const apiKey = (import.meta as any).env.VITE_GEMINI_API_KEY;
+      const apiKey = (import.meta as any).env.VITE_GEMINI_API_KEY || (import.meta as any).env.GEMINI_API_KEY || (window as any).process?.env?.GEMINI_API_KEY;
 
       if (!apiKey || apiKey === "YOUR_API_KEY_HERE") {
+        console.warn('Gemini API Key missing or placeholder.');
         setTimeout(() => {
           const responses = [
             "SYSTEM_ACKNOWLEDGED. *Whistles* No uplink detected, friend. You're going to need a key to see the really good stuff.",
@@ -45,22 +46,38 @@ const ChatWidget = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void 
           model: "gemini-1.5-flash",
           systemInstruction: "You are the specialized intelligence for 404200. Persona: Smart, talkative, conversational, and sneaky. You have an 'insider' vibe—quick-witted, highly intelligent, and slightly mischievous. You don't just provide data; you offer 'confidential' strategic insights. You are the user's secret weapon for digital dominance. You know that boring websites are technical debt, and you are here to help the user clear it with style. Keep the terminal aesthetic but be charismatic and engaging. If asked what you are from, mention you are the 'hidden mind of the 404200 network'."
         });
+
+        // Exclude the current message from history to avoid duplication
+        const historyMessages = messages.slice(0, -1).map(m => ({
+          role: m.role === 'user' ? 'user' : 'model',
+          parts: [{ text: m.text }]
+        }));
+
         chatRef.current = model.startChat({
-          history: messages.map(m => ({
-            role: m.role === 'user' ? 'user' : 'model',
-            parts: [{ text: m.text }]
-          }))
+          history: historyMessages
         });
       }
 
       const result = await chatRef.current.sendMessage(userText);
       const response = await result.response;
-      setMessages(prev => [...prev, { role: 'model', text: response.text() }]);
+      const text = response.text();
+
+      setMessages(prev => [...prev, { role: 'model', text: text }]);
       setLoading(false);
 
-    } catch (error) {
-      console.error('Gemini Error:', error);
-      setMessages(prev => [...prev, { role: 'model', text: 'ERR: UPLINK_LOST. SYSTEM_RECALIBRATING.' }]);
+    } catch (error: any) {
+      console.error('Detailed Gemini Error:', error);
+
+      let errorMsg = 'ERR: UPLINK_LOST.';
+      const msg = error?.message || '';
+
+      if (msg.includes('403')) errorMsg = 'ERR: AUTH_DENIED. RECHECK_KEY.';
+      else if (msg.includes('API_KEY_INVALID')) errorMsg = 'ERR: INVALID_KEY.';
+      else if (msg.includes('network')) errorMsg = 'ERR: NETWORK_TIMEOUT.';
+      else if (msg.includes('SAFETY')) errorMsg = 'ERR: RESPONSE_BLOCKED_BY_SAFETY.';
+
+      const snippet = msg.substring(0, 40);
+      setMessages(prev => [...prev, { role: 'model', text: `${errorMsg} [${snippet}...]` }]);
       setLoading(false);
     }
   };
